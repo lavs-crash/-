@@ -1,8 +1,8 @@
 name: 每日早间简报推送
 on:
+  workflow_dispatch:
   schedule:
-    - cron: "11 9 * * *"
-  workflow_dispatch: 
+    - cron: '00 0 * * *'
 
 jobs:
   weather-push:
