@@ -2,6 +2,7 @@ name: 每日早间简报推送
 on:
   schedule:
     - cron: '11 9 * * *'
+  workflow_dispatch: 
 
 jobs:
   weather-push:
