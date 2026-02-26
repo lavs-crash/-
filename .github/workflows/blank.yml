@@ -1,0 +1,19 @@
+name: 每日天气预报推送
+
+on:
+  schedule:
+    # 每天北京时间 10:10 执行（UTC 02:10）
+    - cron: '10 2 * * *'
+  workflow_dispatch:  # 支持手动触发
+
+jobs:
+  weather-push:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 调用天气预报工作流
+        run: |
+          curl --location --request POST 'https://nsv7pch2sn.coze.site/run' \
+            --header 'Authorization: Bearer ${{ secrets.COZE_API_TOKEN }}' \
+            --header 'Content-Type: application/json' \
+            --data '{}'
